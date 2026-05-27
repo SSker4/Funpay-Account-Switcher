@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FunPay Accounts</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <div>
+          <h1>FunPay</h1>
+          <p>Переключатель аккаунтов</p>
+        </div>
+        <button class="icon-button" id="openLogin" type="button" title="Открыть вход">↗</button>
+      </header>
+
+      <section class="section">
+        <div class="section-title">Аккаунты</div>
+        <div id="accountList" class="account-list"></div>
+        <div id="emptyState" class="empty">Пока нет сохраненных аккаунтов.</div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">Сохранить аккаунт</div>
+        <form id="accountForm" class="form">
+          <input id="label" type="text" autocomplete="off" placeholder="Название, например Main">
+          <input id="login" type="text" autocomplete="username" placeholder="Логин или почта" required>
+          <input id="password" type="password" autocomplete="current-password" placeholder="Пароль" required>
+          <button type="submit" class="primary">Сохранить</button>
+        </form>
+      </section>
+
+      <footer class="footer">
+        <span id="status">Готово.</span>
+      </footer>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
