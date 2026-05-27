@@ -13,11 +13,18 @@
           <h1>FunPay</h1>
           <p>Переключатель аккаунтов</p>
         </div>
-        <button class="icon-button" id="openLogin" type="button" title="Открыть вход">↗</button>
+        <div class="header-actions">
+          <button class="icon-button" id="themeToggle" type="button" title="Тёмная тема">◐</button>
+          <button class="icon-button" id="openLogin" type="button" title="Открыть вход">↗</button>
+        </div>
       </header>
 
       <section class="section">
         <div class="section-title">Аккаунты</div>
+        <div class="account-tools">
+          <input id="search" type="search" autocomplete="off" placeholder="Поиск аккаунтов">
+          <button class="filter-button" id="favoritesOnly" type="button" title="Только избранные">☆</button>
+        </div>
         <div id="accountList" class="account-list"></div>
         <div id="emptyState" class="empty">Пока нет сохраненных аккаунтов.</div>
       </section>
@@ -28,6 +35,13 @@
           <input id="label" type="text" autocomplete="off" placeholder="Название, например Main">
           <input id="login" type="text" autocomplete="username" placeholder="Логин или почта" required>
           <input id="password" type="password" autocomplete="current-password" placeholder="Пароль" required>
+          <div class="color-picker" aria-label="Цветная метка">
+            <button class="color-dot is-selected" type="button" data-color="#18a058" title="Зелёная метка"></button>
+            <button class="color-dot" type="button" data-color="#2f80ed" title="Синяя метка"></button>
+            <button class="color-dot" type="button" data-color="#f2994a" title="Оранжевая метка"></button>
+            <button class="color-dot" type="button" data-color="#bb6bd9" title="Фиолетовая метка"></button>
+            <button class="color-dot" type="button" data-color="#eb5757" title="Красная метка"></button>
+          </div>
           <button type="submit" class="primary">Сохранить</button>
         </form>
       </section>

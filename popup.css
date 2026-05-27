@@ -9,6 +9,22 @@
   --accent: #18a058;
   --accent-dark: #128348;
   --danger: #c73939;
+  --button: #e8edf5;
+  --account-bg: #fbfcff;
+}
+
+body.theme-dark {
+  color-scheme: dark;
+  --bg: #10141f;
+  --panel: #171d2b;
+  --text: #eef3ff;
+  --muted: #9aa6bd;
+  --line: #2a3448;
+  --accent: #37c978;
+  --accent-dark: #20a85e;
+  --danger: #d74d57;
+  --button: #252f42;
+  --account-bg: #1d2535;
 }
 
 * {
@@ -32,6 +48,11 @@ body {
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 14px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
 }
 
 h1 {
@@ -68,21 +89,50 @@ p {
   gap: 8px;
 }
 
+.account-tools {
+  display: grid;
+  grid-template-columns: 1fr 38px;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
 .account {
   display: grid;
-  grid-template-columns: 1fr auto auto;
+  grid-template-columns: 1fr auto auto auto;
   align-items: center;
   gap: 8px;
   padding: 9px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: #fbfcff;
+  background: var(--account-bg);
 }
 
 .account-name {
   min-width: 0;
   font-size: 14px;
   font-weight: 700;
+}
+
+.account-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.account-color {
+  width: 9px;
+  height: 9px;
+  flex: 0 0 9px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, .68);
+}
+
+.account-label {
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -94,6 +144,36 @@ p {
   color: var(--muted);
   font-size: 12px;
   font-weight: 400;
+  cursor: pointer;
+  transition: filter .18s ease, opacity .18s ease;
+}
+
+.account-login.is-hidden {
+  filter: blur(5px);
+  opacity: .78;
+  user-select: none;
+}
+
+.star-button {
+  width: 34px;
+  padding: 0;
+  color: #b98500;
+  background: var(--button);
+  font-size: 18px;
+}
+
+.filter-button {
+  width: 38px;
+  padding: 0;
+  color: #b98500;
+  background: var(--button);
+  font-size: 18px;
+}
+
+.filter-button.is-active,
+.star-button.is-active {
+  color: #fff;
+  background: #d49a13;
 }
 
 .empty {
@@ -114,6 +194,7 @@ input {
   border-radius: 7px;
   padding: 8px 10px;
   color: var(--text);
+  background: var(--panel);
   font: inherit;
   outline: none;
 }
@@ -144,7 +225,7 @@ button {
 
 .secondary {
   color: var(--text);
-  background: #e8edf5;
+  background: var(--button);
 }
 
 .danger {
@@ -156,8 +237,50 @@ button {
   width: 36px;
   padding: 0;
   color: var(--text);
-  background: #e8edf5;
+  background: var(--button);
   font-size: 18px;
+}
+
+.color-picker {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  min-height: 30px;
+}
+
+.color-dot {
+  width: 22px;
+  min-height: 22px;
+  height: 22px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: var(--dot-color);
+}
+
+.color-dot[data-color="#18a058"] {
+  --dot-color: #18a058;
+}
+
+.color-dot[data-color="#2f80ed"] {
+  --dot-color: #2f80ed;
+}
+
+.color-dot[data-color="#f2994a"] {
+  --dot-color: #f2994a;
+}
+
+.color-dot[data-color="#bb6bd9"] {
+  --dot-color: #bb6bd9;
+}
+
+.color-dot[data-color="#eb5757"] {
+  --dot-color: #eb5757;
+}
+
+.color-dot.is-selected {
+  border-color: var(--text);
+  box-shadow: 0 0 0 2px var(--panel), 0 0 0 4px var(--line);
 }
 
 .footer {
